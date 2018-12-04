@@ -65,7 +65,7 @@ CREATE MATERIALIZED VIEW topics AS
             nentry
         FROM ts_stat('SELECT vector FROM private.vectors')
         ORDER BY nentry DESC, ndoc DESC, word
-        LIMIT 200
+        LIMIT 1000
     ), uniq AS (
         SELECT DISTINCT ON(s.url)
             s.url AS url,
@@ -132,3 +132,5 @@ SELECT * FROM hot_domains;
 SELECT * FROM hot_subreddits;
 \copy (
     SELECT _created_utc AS "date", '[' || _title || '](' || _url || ')' AS "story" FROM search('21 trillion')) TO '/tmp/21trillion.csv' DELIMITER ',' CSV HEADER;
+
+SELECT * FROM search('khashoggi');
