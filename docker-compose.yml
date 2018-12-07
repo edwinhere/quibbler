@@ -3,7 +3,7 @@ services:
   postgrest:
     image: postgrest/postgrest
     ports:
-      - '3000:3000'
+      - '127.0.0.1:3000:3000'
     environment:
       - 'PGRST_DB_URI=postgres://lovegood:password@postgres:5432/quibbler'
       - PGRST_DB_SCHEMA=public
@@ -15,12 +15,12 @@ services:
       - POSTGRES_USER=lovegood
       - POSTGRES_PASSWORD=password
     volumes:
-      - './data/quibbler:/var/lib/postgresql/data'
+      - '/opt/quibbler:/var/lib/postgresql/data'
     ports:
-      - '6543:5432'
+      - '127.0.0.1:6543:5432'
   swagger-ui:
     image: swaggerapi/swagger-ui
     environment:
       - 'API_URL=http://localhost:3000/'
     ports:
-      - '8080:8080'
+      - '127.0.0.1:8080:8080'
