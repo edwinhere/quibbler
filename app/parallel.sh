@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "================================================================================"
+date
 export PATH=/root/.pyenv/shims:/root/.pyenv/bin:"$PATH"
 cd "$(dirname "$0")"
 source ../environment/bin/activate
