@@ -134,3 +134,4 @@ SELECT * FROM hot_subreddits;
     SELECT _created_utc AS "date", '[' || _title || '](' || _url || ')' AS "story" FROM search('21 trillion')) TO '/tmp/21trillion.csv' DELIMITER ',' CSV HEADER;
 
 SELECT * FROM search('khashoggi');
+SELECT * FROM submission WHERE domain = 'archive.fo';
