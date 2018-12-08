@@ -1,4 +1,6 @@
 #!/bin/bash
+export PATH=/root/.pyenv/shims:/root/.pyenv/bin:"$PATH"
+cd "$(dirname "$0")"
 source ../environment/bin/activate
 python scrape.py \
 	4threvolutionarywar.wordpress.com \
