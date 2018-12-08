@@ -135,3 +135,4 @@ SELECT * FROM hot_subreddits;
 
 SELECT * FROM search('khashoggi');
 SELECT * FROM submission WHERE domain = 'archive.fo';
+DELETE FROM submission WHERE subreddit = 'savedyouaclick' AND domain ='archive.fo';
