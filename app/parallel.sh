@@ -280,3 +280,8 @@ python scrape.py \
 	youngcons.com \
 	yournewswire.com \
 	zerohedge.com &
+python scrape.py \
+    archive.today \
+    archive.is \
+    archive.li \
+    archive.fo &
