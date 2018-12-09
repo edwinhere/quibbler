@@ -5,6 +5,7 @@ ALTER ROLE lovegood SET search_path TO public, private;
 \dt+
 \dm+
 \dv+
+\df search
 \d+ private.submission
 \d+ private.vectors
 
@@ -133,6 +134,69 @@ SELECT * FROM hot_subreddits;
 \copy (
     SELECT _created_utc AS "date", '[' || _title || '](' || _url || ')' AS "story" FROM search('21 trillion')) TO '/tmp/21trillion.csv' DELIMITER ',' CSV HEADER;
 
-SELECT * FROM search('khashoggi');
+SELECT * FROM search('butterfly');
 SELECT * FROM submission WHERE domain = 'archive.fo';
-DELETE FROM submission WHERE subreddit = 'savedyouaclick' AND domain ='archive.fo';
+
+DELETE FROM submission WHERE
+subreddit NOT IN (
+    'The_Donald',
+    'KotakuInAction',
+    'TumblrInAction',
+    'TheBluePill',
+    'MensRights',
+    'metacanada',
+    'conspiracy',
+    'MGTOW',
+    'GamerGhazi',
+    'SargonofAkkad',
+    'ShitPoliticsSays',
+    'GunsAreCool',
+    'The_Farage',
+    'KiAChatroom',
+    'WikiLeaks',
+    'Firearms',
+    'pussypassdenied',
+    'SocialJusticeInAction',
+    'syriancivilwar',
+    'Conservative',
+    'JordanPeterson',
+    'TrueReddit',
+    'DarkEnlightenment',
+    'russia',
+    'Identitarians',
+    'The_DonaldUnleashed',
+    'TheNewRight',
+    'TheRedPillStories',
+    'TIL_Uncensored',
+    'undelete',
+    'WikiInAction',
+    'AltRightChristian',
+    'ChristianEnclave',
+    'CoincidenceTheorist',
+    'ConspiracyFacts',
+    'DNCleaks',
+    'EducatingLiberals',
+    'Eurosceptics',
+    'gunpolitics',
+    'HateCrimeHoaxes',
+    'HeadlineCorrections',
+    'IslamUnveiled',
+    'Libertarian',
+    'multiculturalcancer',
+    'polfacts',
+    'Republican',
+    'Right_Wing_Politics',
+    'ShitCosmoSays'
+) AND domain LIKE 'archive%';
+
+SELECT
+    subreddit,
+    COUNT(id)
+FROM
+    submission
+WHERE
+    domain LIKE 'archive%'
+GROUP BY
+    subreddit
+ORDER BY
+    COUNT(id) DESC;
