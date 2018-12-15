@@ -134,7 +134,7 @@ SELECT * FROM hot_subreddits;
 \copy (
     SELECT _created_utc AS "date", '[' || _title || '](' || _url || ')' AS "story" FROM search('21 trillion')) TO '/tmp/21trillion.csv' DELIMITER ',' CSV HEADER;
 
-SELECT * FROM search('butterfly');
+SELECT * FROM search('dead journalist');
 SELECT * FROM submission WHERE domain = 'archive.fo';
 
 DELETE FROM submission WHERE
@@ -200,3 +200,9 @@ GROUP BY
     subreddit
 ORDER BY
     COUNT(id) DESC;
+
+SELECT
+    title,
+    length(title) AS len
+FROM submission
+ORDER BY len LIMIT 1;

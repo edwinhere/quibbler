@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=News+Cycle');
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'News Cycle', sans-serif;
+  line-height: 2em;
+  background: #fff;
+  text-align: justify;
+}
+
+div {
+  margin: 1ex;
+}
+
+a {
+  text-decoration: none;
+}
+
+input, form {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 1ex;
+}

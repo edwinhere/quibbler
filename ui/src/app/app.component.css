@@ -1,0 +1,20 @@
+.submission {
+  border: thin solid #ddd;
+  padding: 1ex;
+}
+
+.submission div {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  border-top: thin dashed #eee;
+}
+
+.submission div a:first-child {
+  color: red;
+}
+
+.submission div a:last-child {
+  color: green;
+}
